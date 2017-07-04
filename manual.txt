@@ -1,0 +1,23 @@
+Step-by-step Guidelines by Nicolas Omer :
+
+1) launch swipl in the same folder as the one containing the scheduler (and the 10 instances files) and evaluate consult('scheduler.pl').
+
+2) After consulting the project file in swipl, you can evaluate :
+
+mainOptimal.
+
+=> To launch the search for the optimal solutions for the 5 small instances (and the speedup factor).
+
+mainHeuristic(Deadline)
+
+with the number of seconds you want to spend to improve an heuristic solution as parameter. Also prints the speedup factor.
+
+NOTE : Avoid using a big number as parameter for the mainHeuristic fonction as may cause a "Out of Local stack" error.
+
+2bis) main(Deadline). With this command, you will execute the entire computation that is going to : 
+
+	- find the optimal solution, print it in a human-readable format and display the speedup factor of the 5 small instances. And also spend "Deadline" seconds (entered as parameter for the main functor) to find an heuristic solution, print it in a human-readable format and display the speedup factor of the 5 small instances.
+
+	- spend "Deadline" seconds (entered as parameter for the main functor) to find an heuristic solution, print it in a human-readable format and display the speedup factor of the 5 large instances.
+
+3) Wait for the optimal solutions of the 5 small instances (it takes around 40 seconds on my laptop). However the time it takes to find the heuristic solutions for the 10 instances depends on the value you entered for the Deadline parameter. (For instance, if you evalute main(4), it will take 4x10 seconds + speedup computation time + pretty print time to find the heuristic solutions). 
